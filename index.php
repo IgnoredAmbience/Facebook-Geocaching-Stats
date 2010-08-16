@@ -12,7 +12,7 @@ function form() {
 	if(sqlite_num_rows($result)) {
 		$arr = sqlite_fetch_array($result);
 		// sent to form
-		$bartext = strtr($arr['bartext'], "`+", "' ");
+		$bartext = strtr($arr['bartext'], "`", "'");
 		$gcuname = rawurldecode(str_replace('%2E', '.', $arr['gcuname']));
 	}
 	$sel1 = $sel2 = '';
@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
 		$gcuname = $_POST['gun'] ? $_POST['gun'] : '';
 		$gcuname = str_replace('.', '%2E', rawurlencode($gcuname));
 		$bartext = $_POST['text'] ? $_POST['text'] : 'View my profile';
-		$bartext = strtr($bartext, "' ", "`+");
+		$bartext = strtr($bartext, "'", "`");
 		$logo = intval($_POST['logo']);
 		
 		$facebook->api_client->fbml_setRefHandle("img_$user", imgdiv($gcguid, $bartext, $logo));
