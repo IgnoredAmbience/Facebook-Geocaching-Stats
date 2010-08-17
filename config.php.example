@@ -1,0 +1,10 @@
+<?php
+$appapikey = '';
+$appsecret = '';
+$appcallbackurl = 'http://apps.facebook.com/geocachestats';
+$internalurl = 'http://ge.pythonmoo.co.uk/fbook/geocaching';
+$facebook_config['debug'] = false;
+$db = sqlite_open('db');
+
+$offline_user = '';
+$offline_key = '';
